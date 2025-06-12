@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pixel Cursor</title>
+		<link rel="stylesheet" href="style.css" />
+		<!-- favicon -->
+		<link rel="icon" href="default.png" type="image/x-icon" />
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div class="status-panel">
+			<div class="panel-buttons">
+				<div class="button-label">Pixel Size:</div>
+				<div class="button" onclick="window.PIXEL_SIZE = 1; reset()">1</div>
+				<div class="button" onclick="window.PIXEL_SIZE = 2; reset()">2</div>
+				<div class="button" onclick="window.PIXEL_SIZE = 3; reset()">3</div>
+				<div class="button" onclick="window.PIXEL_SIZE = 4; reset()">4</div>
+				<div class="button" onclick="window.PIXEL_SIZE = 5; reset()">5</div>
+			</div>
+			<div class="panel-buttons">
+				<div class="button-label">Pixel Color:</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'default'; reset()">Default</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'random'; reset()">Random</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'white'; reset()">White</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'red'; reset()">Red</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'green'; reset()">Green</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'blue'; reset()">Blue</div>
+				<div class="button" onclick="window.PIXEL_COLOR = 'yellow'; reset()">Yellow</div>
+			</div>
+			<div class="panel-buttons">
+				<div class="button-label">Destruction Pattern:</div>
+				<div class="button" onclick="window.PIXEL_PATTERN = 'bottom'; reset()">Bottom</div>
+				<div class="button" onclick="window.PIXEL_PATTERN = 'top'; reset()">Top</div>
+				<div class="button" onclick="window.PIXEL_PATTERN = 'random'; reset()">Random</div>
+			</div>
+			<div class="panel-buttons">
+				<div class="button-label">Cursor Type:</div>
+				<div class="button" onclick="window.CURSOR_TYPE = 'default'; reset()">Default</div>
+				<div class="button" onclick="window.CURSOR_TYPE = 'pointer'; reset()">Pointer</div>
+				<div class="button" onclick="window.CURSOR_TYPE = 'screenshot'; reset()">Screenshot</div>
+				<div class="button" onclick="setCustomCursor()">Custom</div>
+			</div>
+		</div>
+		<script src="image-to-array.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
