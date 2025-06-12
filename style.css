@@ -61,3 +61,18 @@ body {
 	background-color: #2d2d2d;
 	color: #ffffff;
 }
+
+.instruction-panel {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px;
+	color: #fff;
+	background-color: #171717;
+	font-family: monospace;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	column-gap: 16px;
+}

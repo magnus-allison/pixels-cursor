@@ -22,6 +22,7 @@ window.addEventListener('resize', resizeCanvas);
 
 let mouseX = 0;
 let mouseY = 0;
+let cursorOnCanvas = true;
 
 const getRandomColor = () => {
 	const letters = '0123456789ABCDEF';
@@ -86,6 +87,9 @@ class Pixel {
 
 	draw(ctx) {
 		if (!this.active) return;
+
+		// Only draw non-falling pixels if cursor is on canvas
+		if (!this.falling && !cursorOnCanvas) return;
 
 		ctx.fillStyle = this.color;
 		ctx.fillRect(this.x, this.y, this.size, this.size);
@@ -164,6 +168,14 @@ canvas.addEventListener('mousemove', (event) => {
 	const rect = canvas.getBoundingClientRect();
 	mouseX = event.clientX - rect.left;
 	mouseY = event.clientY - rect.top;
+});
+
+canvas.addEventListener('mouseenter', () => {
+	cursorOnCanvas = true;
+});
+
+canvas.addEventListener('mouseleave', () => {
+	cursorOnCanvas = false;
 });
 
 canvas.addEventListener('click', async (event) => {

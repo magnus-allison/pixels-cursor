@@ -55,6 +55,26 @@ const imageToArray = async (imagePath) => {
 		simplifiedArray.push(row);
 	}
 
+	console.table(simplifiedArray);
+
+	// destroy columns with all 0s
+	for (let x = 0; x < simplifiedArray[0].length; x++) {
+		let allZero = true;
+		for (let y = 0; y < simplifiedArray.length; y++) {
+			if (simplifiedArray[y][x] !== 0) {
+				allZero = false;
+				break;
+			}
+		}
+		if (allZero) {
+			for (let y = 0; y < simplifiedArray.length; y++) {
+				simplifiedArray[y].splice(x, 1);
+			}
+			x--; // adjust index after removal
+		}
+	}
+
+	console.table(simplifiedArray);
 	return simplifiedArray;
 };
 
